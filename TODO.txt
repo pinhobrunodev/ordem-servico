@@ -1,0 +1,21 @@
+DONE:
+Cliente e endpoints
+
+TODO
+Ordem de serviço e seus endpoints
+Comentario e seus endpoints
+
+	
+
+
+
+		
+	         tb_cliente           		                tb_order_servico                                            tb_comentario
+	    nome|email|telefone   	               descricao,preco,dataAbertuda,dataFinalizcao,idClient	  	descricao | dataEnvio | idOrderSevico
+     1|bruno|bruno@gmail.com|75981395170      1|lavagem de carro|20,00|DD/MM/YYYY|DD/MM/YYYY|1			       eficiente|DD/MM/YYYY|1
+
+
+
+
+	
+	

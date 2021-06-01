@@ -36,7 +36,6 @@ public class OrdemServicoDTO {
         status_ordem_servico = entity.getStatus();
         clienteName = entity.getCliente().getNome();
         clienteTelefone = entity.getCliente().getTelefone();
-        comentarios = entity.getComentarios();
     }
 
     public String getClienteName() {

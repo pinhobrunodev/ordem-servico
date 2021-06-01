@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_cliente")
 public class Cliente implements Serializable {
@@ -31,6 +33,7 @@ public class Cliente implements Serializable {
     public String getNome() {
         return nome;
     }
+    @JsonIgnore
     public List<OrdemServico> getOrdens() {
         return ordens;
     }

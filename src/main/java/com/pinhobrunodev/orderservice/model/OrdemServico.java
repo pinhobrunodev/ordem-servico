@@ -2,8 +2,9 @@ package com.pinhobrunodev.orderservice.model;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pinhobrunodev.orderservice.model.enums.StatusOrdemServico;
 
 @Entity
@@ -38,18 +40,19 @@ public class OrdemServico implements Serializable {
     private Cliente cliente;
 
     @OneToMany(mappedBy = "ordem_servico")
-    private List<Comentario> comentarios = new ArrayList<>();
+    private Set<Comentario> comentarios = new HashSet<>();
 
     public OrdemServico() {
     }
 
-    public List<Comentario> getComentarios() {
+    public Set<Comentario> getComentarios() {
         return comentarios;
     }
 
     public Long getId() {
         return id;
     }
+
     public Cliente getCliente() {
         return cliente;
     }
@@ -77,10 +80,11 @@ public class OrdemServico implements Serializable {
     public void setDataAbertuda(Instant dataAbertuda) {
         this.data_abertura = dataAbertuda;
     }
-    
+
     public StatusOrdemServico getStatus() {
         return status_ordem_servico;
     }
+
     public void setStatus(StatusOrdemServico status) {
         this.status_ordem_servico = status;
     }

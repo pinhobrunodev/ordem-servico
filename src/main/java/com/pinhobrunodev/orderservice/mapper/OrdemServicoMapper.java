@@ -16,6 +16,11 @@ public class OrdemServicoMapper {
     @Autowired
     private ClienteRepository repository;
 
+    /**
+     * 
+     * @param dto
+     * @return entity ( com os valores)
+     */
     public OrdemServico toEntity(OrdemServicoInsertDTO dto) {
         OrdemServico entity = new OrdemServico();
         entity.setId(dto.getId());
@@ -32,6 +37,11 @@ public class OrdemServicoMapper {
     }
 
   
+    /**
+     * 
+     * @param entity
+     * @return dto( com lista de dados para o frontend)
+     */
     public OrdemServicoDTO toOrdemServicoDTO(OrdemServico entity){
         OrdemServicoDTO dto = new OrdemServicoDTO();
         dto.setId(entity.getId());
@@ -40,7 +50,6 @@ public class OrdemServicoMapper {
         dto.setClienteTelefone(entity.getCliente().getTelefone());
         dto.setData_abertura(entity.getDataAbertura());
         dto.setData_finalizacao(entity.getDataFinalizacao());
-        dto.setComentarios(entity.getComentarios());
         dto.setPreco(entity.getPreco());
         dto.setStatus_ordem_servico(entity.getStatus());
         return dto;
