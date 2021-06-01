@@ -2,9 +2,6 @@ package com.pinhobrunodev.orderservice.model;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,12 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pinhobrunodev.orderservice.model.enums.StatusOrdemServico;
 
 @Entity
@@ -39,16 +34,12 @@ public class OrdemServico implements Serializable {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "ordem_servico")
-    private Set<Comentario> comentarios = new HashSet<>();
+    
 
     public OrdemServico() {
     }
 
-    public Set<Comentario> getComentarios() {
-        return comentarios;
-    }
-
+    
     public Long getId() {
         return id;
     }
@@ -104,5 +95,7 @@ public class OrdemServico implements Serializable {
     public void setPreco(Double preco) {
         this.preco = preco;
     }
+
+
 
 }

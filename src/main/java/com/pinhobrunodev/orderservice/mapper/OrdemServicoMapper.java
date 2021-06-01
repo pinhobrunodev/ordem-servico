@@ -23,7 +23,6 @@ public class OrdemServicoMapper {
      */
     public OrdemServico toEntity(OrdemServicoInsertDTO dto) {
         OrdemServico entity = new OrdemServico();
-        entity.setId(dto.getId());
         entity.setDescricao(dto.getDescricao());
         entity.setDataAbertuda(Instant.now());
         entity.setDataFinalizacao(dto.getData_finalizacao());
@@ -32,10 +31,10 @@ public class OrdemServicoMapper {
         /**
          * Instancio o cliente pelo id
          */
-        entity.setCliente(repository.getOne(dto.getId()));
+        entity.setCliente(repository.getOne(dto.getClienteId()));
         return entity;
     }
-
+  
   
     /**
      * 
@@ -44,7 +43,6 @@ public class OrdemServicoMapper {
      */
     public OrdemServicoDTO toOrdemServicoDTO(OrdemServico entity){
         OrdemServicoDTO dto = new OrdemServicoDTO();
-        dto.setId(entity.getId());
         dto.setDescricao(entity.getDescricao());
         dto.setClienteName(entity.getCliente().getNome());
         dto.setClienteTelefone(entity.getCliente().getTelefone());

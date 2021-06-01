@@ -26,4 +26,9 @@ public class ExceptionHandlers extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ExceptionResponse(e.getMessage()));
     }
 
+    @ExceptionHandler(EmptyOrdemServicoForTodayException.class)
+    protected ResponseEntity<ExceptionResponse> emptyOrdemServicoForTodayHandler(EmptyOrdemServicoForTodayException e){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ExceptionResponse(e.getMessage()));
+    }
+
 }

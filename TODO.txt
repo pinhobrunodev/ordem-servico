@@ -2,6 +2,8 @@ DONE:
 Cliente e endpoints
 
 TODO
+Nao precisar informar o id na hra de fzer um POST nos DTOS
+1 Ordem N Comentarios -> Adicionar os comentarios nas ordens
 Ordem de serviço e seus endpoints
 Comentario e seus endpoints
 

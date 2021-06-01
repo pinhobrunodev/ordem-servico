@@ -50,11 +50,11 @@ public class ClienteController {
         return ResponseEntity.ok().body(service.findAll());
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "cliente/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ClienteDTO> findById(@PathVariable Long id) {
         return ResponseEntity.ok().body(service.findById(id));
     }
-    @GetMapping(value = "{nome}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "cliente{nome}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ClienteDTO> findByNome(@RequestParam("nome") String nome) {
         return ResponseEntity.ok().body(service.findByNome(nome));
     }

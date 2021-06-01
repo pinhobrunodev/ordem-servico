@@ -1,6 +1,5 @@
 package com.pinhobrunodev.orderservice.controller;
 
-import java.net.URI;
 import java.util.List;
 
 import com.pinhobrunodev.orderservice.model.dto.OrdemServicoDTO;
@@ -15,20 +14,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping(value = "/ordens")
 public class OrdemServicoController {
-    
+
     @Autowired
     private OrdemService service;
 
-
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<OrdemServicoDTO> save (@RequestBody OrdemServicoInsertDTO dto){
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
-        return ResponseEntity.created(uri).body(service.save(dto));
+    public ResponseEntity<OrdemServicoDTO> save(@RequestBody OrdemServicoInsertDTO dto) {
+        return ResponseEntity.ok(service.save(dto));
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -38,5 +34,9 @@ public class OrdemServicoController {
 
 
 
+    @GetMapping(value = "/today", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<OrdemServicoDTO>> findfindByToday() {
+        return ResponseEntity.ok(service.findByToday());
+    }
 
 }

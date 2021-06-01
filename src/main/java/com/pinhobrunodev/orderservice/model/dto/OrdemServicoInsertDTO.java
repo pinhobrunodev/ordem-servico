@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrdemServicoInsertDTO {
 
-    private Long id;
+
     private String descricao;
     private Double preco;
     @JsonFormat(shape = Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
@@ -23,7 +23,6 @@ public class OrdemServicoInsertDTO {
 
     // toDTO()
     public OrdemServicoInsertDTO(OrdemServico entity) {
-        id = entity.getId();
         descricao = entity.getDescricao();
         preco = entity.getPreco();
         data_finalizacao = entity.getDataFinalizacao();
@@ -39,9 +38,6 @@ public class OrdemServicoInsertDTO {
         return data_finalizacao;
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public String getDescricao() {
         return descricao;
@@ -71,9 +67,7 @@ public class OrdemServicoInsertDTO {
         this.status_ordem_servico = status_ordem_servico;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
 
     public void setData_finalizacao(Instant data_finalizacao) {
         this.data_finalizacao = data_finalizacao;
